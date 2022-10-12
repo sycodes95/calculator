@@ -1,4 +1,3 @@
-
 const numbers = document.querySelector('.numbers');
 // ^ Selects div class that DISPLAYS number inputs.
 let clear = document.querySelector('#clear');
@@ -96,6 +95,10 @@ decimal.addEventListener('click', () => {
 
 const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
+    let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
+    b = parseFloat(numbersToOperate);
+    console.log(b);
+    operate(a, b);
     
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
@@ -114,6 +117,12 @@ divide.addEventListener('click', () => {
 
 const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
+    let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
+    b = parseFloat(numbersToOperate);
+    console.log(b);
+    operate(a, b);
+
+
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
     inputOperator.textContent = ' * '
@@ -129,6 +138,12 @@ multiply.addEventListener('click', () => {
 
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
+    let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
+    b = parseFloat(numbersToOperate);
+    console.log(b);
+    operate(a, b);
+
+
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
     inputOperator.textContent = ' - '
@@ -144,6 +159,10 @@ subtract.addEventListener('click', () => {
 
 const add = document.querySelector('#add');
 add.addEventListener('click', () => {
+    let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
+    b = parseFloat(numbersToOperate);
+    console.log(b);
+    operate(a, b);
     
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
@@ -250,12 +269,6 @@ function operate (a, b){
 
 
 }
-    
-    
-    
-
-    
-
 
     
     
