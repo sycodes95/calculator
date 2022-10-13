@@ -3,6 +3,9 @@ const numbers = document.querySelector('.numbers');
 let clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
     numbers.innerHTML = '';
+    a = 0;
+    b = 0;
+    operator = '';
 })
 // ^ Clears display of all numbers (divs) that has been inputed
 
@@ -12,6 +15,7 @@ seven.addEventListener('click', () => {
     inputNumber.classList.add('divNums')
     numbers.appendChild(inputNumber);
     inputNumber.textContent = '7';
+    
 });
 const eight = document.querySelector('#eight');
 eight.addEventListener('click', () => {
@@ -97,11 +101,13 @@ const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
     let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
     b = parseFloat(numbersToOperate);
+    
     console.log(b);
     operate(a, b);
     
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
+    inputOperator.classList.add('operator')
     inputOperator.textContent = ' / '
     inputOperator.style.paddingLeft = '4px'
     inputOperator.style.paddingRight = '4px'
@@ -119,12 +125,17 @@ const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
     let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
     b = parseFloat(numbersToOperate);
-    console.log(b);
+    
+
+
+    
+    
     operate(a, b);
 
 
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
+    inputOperator.classList.add('operator')
     inputOperator.textContent = ' * '
     inputOperator.style.paddingLeft = '4px'
     inputOperator.style.paddingRight = '4px'
@@ -138,14 +149,20 @@ multiply.addEventListener('click', () => {
 
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
+
     let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
     b = parseFloat(numbersToOperate);
+    
+
+
+    
     console.log(b);
     operate(a, b);
 
 
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
+    inputOperator.classList.add('operator')
     inputOperator.textContent = ' - '
     inputOperator.style.paddingLeft = '4px'
     inputOperator.style.paddingRight = '4px'
@@ -159,13 +176,17 @@ subtract.addEventListener('click', () => {
 
 const add = document.querySelector('#add');
 add.addEventListener('click', () => {
+    
     let numbersToOperate = Array.from(document.querySelectorAll('div.divNums')).map(t => t.innerHTML).join('');
     b = parseFloat(numbersToOperate);
+   
+    
     console.log(b);
     operate(a, b);
     
     let inputOperator = document.createElement('div');
     numbers.appendChild(inputOperator);
+    inputOperator.classList.add('operator')
     inputOperator.textContent = ' + '
     inputOperator.style.paddingLeft = '4px'
     inputOperator.style.paddingRight = '4px'
@@ -175,6 +196,8 @@ add.addEventListener('click', () => {
     let numbersToAdd = Array.from(document.querySelectorAll('div.addIt')).map(t => t.innerHTML).join('');
     a = parseFloat(numbersToAdd);
     operator = 'add';
+
+    
 });
 
 const equal = document.querySelector('#equal');
@@ -186,6 +209,8 @@ equal.addEventListener('click', () => {
     b = parseFloat(numbersToOperate);
     console.log(b);
     operate(a, b);
+    
+    
     
 });
 
@@ -221,7 +246,7 @@ function operate (a, b){
         let displayAnswer = document.createElement('div');
         numbers.appendChild(displayAnswer);
         displayAnswer.classList.add('divNums')
-        displayAnswer.textContent = parseFloat(`${answer}`);
+        displayAnswer.textContent = parseFloat(`${answer}`).toFixed(1);
         
         a = parseFloat(answer);
         console.log(a)
@@ -232,7 +257,7 @@ function operate (a, b){
         let displayAnswer = document.createElement('div');
         numbers.appendChild(displayAnswer);
         displayAnswer.classList.add('divNums')
-        displayAnswer.textContent = parseFloat(`${answer}`);
+        displayAnswer.textContent = parseFloat(`${answer}`).toFixed(1);
         
         a = parseFloat(answer);
 
@@ -242,7 +267,7 @@ function operate (a, b){
         let displayAnswer = document.createElement('div');
         numbers.appendChild(displayAnswer);
         displayAnswer.classList.add('divNums')
-        displayAnswer.textContent = parseFloat(`${answer}`);
+        displayAnswer.textContent = parseFloat(`${answer}`).toFixed(1);
         
         a = parseFloat(answer);
 
@@ -252,11 +277,13 @@ function operate (a, b){
         let displayAnswer = document.createElement('div');
         numbers.appendChild(displayAnswer);
         displayAnswer.classList.add('divNums')
-        displayAnswer.textContent = parseFloat(`${answer}`);
+        displayAnswer.textContent = parseFloat(`${answer}`).toFixed(1);
         
         a = parseFloat(answer);
 
-    }
+    } 
+
+    operator = null;
         
         
         
@@ -269,6 +296,40 @@ function operate (a, b){
 
 
 }
+
+    
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+
+
+        
+        
+        
+
+    
+
+
+
+    
+
 
     
     
